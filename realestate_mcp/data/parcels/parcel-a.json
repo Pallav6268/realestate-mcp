@@ -1,0 +1,84 @@
+{
+ "id": "parcel-a",
+ "name": "Parcel A — Rajarhat outskirts",
+ "summary": "Two acres of converted homestead land on a 12 m road, 2.5 km from the expressway. Clean title, two owners.",
+ "land": {
+  "area_acres": 2.0,
+  "asking_price_inr": 100000000,
+  "zoning": "Residential (converted to bastu)",
+  "frontage_m": 60
+ },
+ "plan": {
+  "product": "G+4 apartments",
+  "far": 1.75,
+  "carpet_efficiency": 0.7,
+  "sale_price_per_sqft_carpet": 6000,
+  "construction_cost_per_sqft_builtup": 1950,
+  "timeline_years": 3.5,
+  "avg_unit_carpet_sqft": 850
+ },
+ "title": {
+  "chain_years_verified": 32,
+  "chain_gaps": [],
+  "mutation_done": true,
+  "conversion_status": "converted",
+  "encumbrances": [],
+  "litigation": [],
+  "owners": 2,
+  "owners_consenting": 2,
+  "notes": "Both owners are siblings; certified copies of all deeds since 1994 are on file."
+ },
+ "site": {
+  "waterlogging_max_cm_last_5_monsoons": 10,
+  "years_waterlogged_of_5": 1,
+  "road_width_m": 12,
+  "distance_to_highway_km": 2.5,
+  "soil": "good",
+  "pending_approvals": [
+   "building plan sanction"
+  ],
+  "ht_line_over_plot": false,
+  "notes": "Plot is about 0.6 m above the road level."
+ },
+ "market": {
+  "comparables": [
+   {
+    "name": "Comparable A1",
+    "distance_km": 0.8,
+    "sale_date": "2026-01",
+    "price_per_sqft_carpet": 5900
+   },
+   {
+    "name": "Comparable A2",
+    "distance_km": 1.2,
+    "sale_date": "2026-03",
+    "price_per_sqft_carpet": 6050
+   },
+   {
+    "name": "Comparable A3",
+    "distance_km": 1.5,
+    "sale_date": "2026-04",
+    "price_per_sqft_carpet": 6150
+   },
+   {
+    "name": "Comparable A4",
+    "distance_km": 2.0,
+    "sale_date": "2026-06",
+    "price_per_sqft_carpet": 6100
+   },
+   {
+    "name": "Comparable A5",
+    "distance_km": 2.4,
+    "sale_date": "2026-08",
+    "price_per_sqft_carpet": 6300
+   },
+   {
+    "name": "Comparable A6",
+    "distance_km": 3.0,
+    "sale_date": "2026-09",
+    "price_per_sqft_carpet": 6000
+   }
+  ],
+  "notes": "Steady demand from IT-sector buyers; two competing launches within 3 km."
+ }
+}

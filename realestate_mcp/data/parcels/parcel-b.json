@@ -1,0 +1,88 @@
+{
+ "id": "parcel-b",
+ "name": "Parcel B — EM Bypass extension, canal side",
+ "summary": "One and a half acres next to a drainage canal on a 6 m road. Land-use conversion applied for; the land is mortgaged to a bank.",
+ "land": {
+  "area_acres": 1.5,
+  "asking_price_inr": 85000000,
+  "zoning": "Agricultural (conversion applied)",
+  "frontage_m": 35
+ },
+ "plan": {
+  "product": "G+4 apartments",
+  "far": 1.75,
+  "carpet_efficiency": 0.7,
+  "sale_price_per_sqft_carpet": 6200,
+  "construction_cost_per_sqft_builtup": 1950,
+  "timeline_years": 3.5,
+  "avg_unit_carpet_sqft": 850
+ },
+ "title": {
+  "chain_years_verified": 30,
+  "chain_gaps": [],
+  "mutation_done": true,
+  "conversion_status": "applied, pending",
+  "encumbrances": [
+   "Mortgage with a bank for ₹2.1 crore; seller proposes to clear it from the sale price"
+  ],
+  "litigation": [],
+  "owners": 3,
+  "owners_consenting": 3,
+  "notes": "Conversion application filed in 2025; no decision yet."
+ },
+ "site": {
+  "waterlogging_max_cm_last_5_monsoons": 45,
+  "years_waterlogged_of_5": 2,
+  "road_width_m": 6,
+  "distance_to_highway_km": 1.8,
+  "soil": "moderate",
+  "pending_approvals": [
+   "land-use conversion",
+   "building plan sanction",
+   "drainage NOC"
+  ],
+  "ht_line_over_plot": false,
+  "notes": "Canal overflowed in the 2024 and 2025 monsoons; the road would need widening for fire-tender access."
+ },
+ "market": {
+  "comparables": [
+   {
+    "name": "Comparable B1",
+    "distance_km": 0.5,
+    "sale_date": "2026-01",
+    "price_per_sqft_carpet": 5300
+   },
+   {
+    "name": "Comparable B2",
+    "distance_km": 0.9,
+    "sale_date": "2026-03",
+    "price_per_sqft_carpet": 5450
+   },
+   {
+    "name": "Comparable B3",
+    "distance_km": 1.4,
+    "sale_date": "2026-04",
+    "price_per_sqft_carpet": 5500
+   },
+   {
+    "name": "Comparable B4",
+    "distance_km": 1.7,
+    "sale_date": "2026-06",
+    "price_per_sqft_carpet": 5600
+   },
+   {
+    "name": "Comparable B5",
+    "distance_km": 2.2,
+    "sale_date": "2026-08",
+    "price_per_sqft_carpet": 5550
+   },
+   {
+    "name": "Comparable B6",
+    "distance_km": 2.8,
+    "sale_date": "2026-09",
+    "price_per_sqft_carpet": 5400
+   }
+  ],
+  "notes": "Most nearby launches are priced at ₹5,300–5,600 per sq ft of carpet area."
+ }
+}

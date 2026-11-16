@@ -1,0 +1,91 @@
+{
+ "id": "parcel-c",
+ "name": "Parcel C — South 24 Parganas riverside",
+ "summary": "Three acres on a 4 m village road near the river. Seven co-owners, two not consenting, and a partition suit is pending.",
+ "land": {
+  "area_acres": 3.0,
+  "asking_price_inr": 140000000,
+  "zoning": "Agricultural",
+  "frontage_m": 25
+ },
+ "plan": {
+  "product": "G+4 apartments",
+  "far": 1.5,
+  "carpet_efficiency": 0.7,
+  "sale_price_per_sqft_carpet": 4500,
+  "construction_cost_per_sqft_builtup": 1950,
+  "timeline_years": 4.0,
+  "avg_unit_carpet_sqft": 800
+ },
+ "title": {
+  "chain_years_verified": 22,
+  "chain_gaps": [
+   "No registered deed found for 1998–2004"
+  ],
+  "mutation_done": false,
+  "conversion_status": "not applied",
+  "encumbrances": [],
+  "litigation": [
+   "Partition suit among the heirs, pending in the civil court"
+  ],
+  "owners": 7,
+  "owners_consenting": 5,
+  "notes": "Two co-owners live abroad and have not signed the consent letter."
+ },
+ "site": {
+  "waterlogging_max_cm_last_5_monsoons": 90,
+  "years_waterlogged_of_5": 4,
+  "road_width_m": 4,
+  "distance_to_highway_km": 7.5,
+  "soil": "weak",
+  "pending_approvals": [
+   "land-use conversion",
+   "building plan sanction",
+   "drainage NOC",
+   "approach road"
+  ],
+  "ht_line_over_plot": true,
+  "notes": "Low-lying; a high-tension line crosses the north-east corner."
+ },
+ "market": {
+  "comparables": [
+   {
+    "name": "Comparable C1",
+    "distance_km": 1.5,
+    "sale_date": "2026-01",
+    "price_per_sqft_carpet": 3700
+   },
+   {
+    "name": "Comparable C2",
+    "distance_km": 2.5,
+    "sale_date": "2026-03",
+    "price_per_sqft_carpet": 3850
+   },
+   {
+    "name": "Comparable C3",
+    "distance_km": 3.0,
+    "sale_date": "2026-04",
+    "price_per_sqft_carpet": 3800
+   },
+   {
+    "name": "Comparable C4",
+    "distance_km": 4.0,
+    "sale_date": "2026-06",
+    "price_per_sqft_carpet": 3900
+   },
+   {
+    "name": "Comparable C5",
+    "distance_km": 4.5,
+    "sale_date": "2026-08",
+    "price_per_sqft_carpet": 3750
+   },
+   {
+    "name": "Comparable C6",
+    "distance_km": 6.0,
+    "sale_date": "2026-09",
+    "price_per_sqft_carpet": 3650
+   }
+  ],
+  "notes": "Thin market; resale apartments nearby take about a year to sell."
+ }
+}

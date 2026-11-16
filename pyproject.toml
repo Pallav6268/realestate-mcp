@@ -1,0 +1,29 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "realestate-mcp"
+version = "0.1.0"
+description = "MCP server with real-estate tools: agreement review, buyer helpdesk search, RERA Act lookup and land feasibility."
+readme = "README.md"
+requires-python = ">=3.11"
+authors = [{ name = "Pallav Kumar" }]
+dependencies = ["mcp>=1.30,<2", "rank-bm25>=0.2.2"]
+
+[project.scripts]
+realestate-mcp = "realestate_mcp.server:main"
+
+[tool.hatch.build.targets.wheel]
+packages = ["realestate_mcp"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["."]
+
+[tool.ruff]
+line-length = 120
+target-version = "py311"
+
+[tool.ruff.lint]
+select = ["E", "F", "W", "I", "B", "UP"]
