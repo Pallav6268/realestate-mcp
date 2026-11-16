@@ -72,14 +72,7 @@ PROMPT_EXAMPLES = {
     "feasibility_memo": {"parcel_id": "parcel-b"},
     "answer_buyer": {"question": "Can I transfer my booking to my brother?"},
 }
-DESKTOP_CONFIG = {
-    "mcpServers": {
-        "realestate": {
-            "command": "uvx",
-            "args": ["--from", f"git+{GITHUB}", "realestate-mcp"],
-        }
-    }
-}
+DESKTOP_CONFIG = {"mcpServers": {"realestate": {"command": "realestate-mcp"}}}
 
 
 def load_secrets_into_env() -> None:
@@ -294,19 +287,24 @@ with desktop_tab:
         "The same server runs on your own computer inside Claude Desktop (or Cursor, VS Code, or any MCP client). "
         "It needs [uv](https://docs.astral.sh/uv/) and git; no API key, because the tools do not call a model."
     )
+    st.markdown("1. Install it once:")
+    st.code(f"uv tool install git+{GITHUB}", language="bash")
     st.markdown(
-        "1. Install uv.\n"
-        "2. In Claude Desktop open **Settings → Developer → Edit Config** and add this to "
-        "`claude_desktop_config.json`:"
+        "2. In Claude Desktop open **Settings → Developer → Edit Config**, add this to "
+        "`claude_desktop_config.json`, and restart Claude Desktop. If it can't find the command, use the full path "
+        "from `where realestate-mcp` (Windows) or `which realestate-mcp` (macOS/Linux)."
     )
     st.code(json.dumps(DESKTOP_CONFIG, indent=2), language="json")
     st.markdown(
-        "3. Restart Claude Desktop. The tools and prompts appear under the tools menu. Try: "
-        '*"Review agreement B-204"* or the **Land feasibility memo** prompt with `parcel-b`.'
+        '3. In a new chat, try *"Use the realestate tools to review agreement B-204"* or the '
+        "**Land feasibility memo** prompt with `parcel-b`."
+    )
+    st.caption(
+        "Running it with `uvx --from git+...` in the config also works, but it re-fetches the repo on every launch "
+        "and can take longer than Claude Desktop waits for a server to start."
     )
     st.markdown("Or run it yourself:")
     st.code(
-        f"pip install git+{GITHUB}\n"
         "realestate-mcp                     # stdio, for MCP clients\n"
         "realestate-mcp --transport http    # streamable HTTP at http://127.0.0.1:8000/mcp",
         language="bash",

@@ -17,23 +17,31 @@ Week 3: [Land Feasibility Panel](https://github.com/Pallav6268/land-feasibility-
 
 Needs [uv](https://docs.astral.sh/uv/) and git. No API key: the tools do not call a model.
 
-Add this to `claude_desktop_config.json` (Claude Desktop → Settings → Developer → Edit Config) and restart:
+1. Install it once:
 
-```json
-{
-  "mcpServers": {
-    "realestate": {
-      "command": "uvx",
-      "args": ["--from", "git+https://github.com/Pallav6268/realestate-mcp", "realestate-mcp"]
-    }
-  }
-}
-```
+   ```bash
+   uv tool install git+https://github.com/Pallav6268/realestate-mcp
+   ```
+
+2. Add this to `claude_desktop_config.json` (Claude Desktop → Settings → Developer → Edit Config) and restart
+   Claude Desktop. If it can't find the command, use the full path that `where realestate-mcp` (Windows) or
+   `which realestate-mcp` (macOS/Linux) prints.
+
+   ```json
+   {
+     "mcpServers": {
+       "realestate": { "command": "realestate-mcp" }
+     }
+   }
+   ```
+
+Why not `uvx --from git+...` straight in the config? It re-fetches the repo on every launch. On my connection
+that took over two minutes, longer than Claude Desktop waits for a server to start. Installed once, it starts in
+about a second.
 
 Or run it directly:
 
 ```bash
-pip install git+https://github.com/Pallav6268/realestate-mcp
 realestate-mcp                      # stdio, for MCP clients
 realestate-mcp --transport http     # streamable HTTP at http://127.0.0.1:8000/mcp
 ```
