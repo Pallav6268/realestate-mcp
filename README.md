@@ -87,7 +87,7 @@ flowchart LR
 - **Tool explorer:** call any tool, read any resource and fetch any prompt directly, with no model in between.
 - **Use it in Claude Desktop:** the config above.
 
-The client hard-codes nothing about real estate: swap the server and it works on other tools. Without an API
+The client has no tools of its own: it reads the tool list and instructions from the server on every connection, so new server tools appear without changing the client. Without an API
 key it runs in demo mode, where a keyword rule picks one tool per question.
 
 ## Run locally
