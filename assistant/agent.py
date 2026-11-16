@@ -32,7 +32,8 @@ described above.
   price or cost is asked about, call the tool again with that input.
 - Quote figures exactly as the tools return them, in ₹ crore or lakh where the tool does.
 - Cite what you used: passage ids (e.g. payment_plan-3), RERA section numbers, agreement and clause names.
-- If the tools do not cover the question, say so in one sentence.
+- If the tools do not cover the question, or part of it, say so in one sentence. Do not stretch a passage to a
+  situation it does not mention (e.g. a general complaints passage is not an answer about society disputes).
 - Keep answers short and plain: a few sentences or a small table."""
 
 
