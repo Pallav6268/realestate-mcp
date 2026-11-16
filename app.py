@@ -10,6 +10,7 @@ import asyncio
 import hashlib
 import json
 import os
+import threading
 from pathlib import Path
 
 import streamlit as st
@@ -104,6 +105,19 @@ def settings_fingerprint() -> tuple:
 
 
 @st.cache_resource
+def event_loop() -> asyncio.AbstractEventLoop:
+    """One long-lived loop for every MCP session and model call. The cached model clients (Gemini's in
+    particular) bind to the loop they first ran on, so a fresh asyncio.run() per question breaks them."""
+    loop = asyncio.new_event_loop()
+    threading.Thread(target=loop.run_forever, daemon=True, name="mcp-loop").start()
+    return loop
+
+
+def run(coro):
+    return asyncio.run_coroutine_threadsafe(coro, event_loop()).result()
+
+
+@st.cache_resource
 def load_models(settings: tuple) -> tuple[list, str, bool]:
     models = available_models()
     if not models:
@@ -114,7 +128,7 @@ def load_models(settings: tuple) -> tuple[list, str, bool]:
 
 @st.cache_data(show_spinner="Connecting to the MCP server…")
 def server_info(settings: tuple) -> dict:
-    return asyncio.run(G.describe())
+    return run(G.describe())
 
 
 def show_calls(calls: list[dict]) -> None:
@@ -199,7 +213,7 @@ with ask_tab:
                     history += [HumanMessage(t["question"]), AIMessage(t["answer"])]
                 try:
                     with st.spinner("Calling MCP tools…"):
-                        turn = asyncio.run(G.ask(question, history, models))
+                        turn = run(G.ask(question, history, models))
                 except Exception as exc:  # most often a free-tier limit on every provider
                     st.error(
                         "The AI providers did not answer, so nothing was generated. On free tiers this is usually a "
@@ -248,7 +262,7 @@ with explore_tab:
         except json.JSONDecodeError as exc:
             st.error(f"Arguments are not valid JSON: {exc}")
         else:
-            is_error, result = asyncio.run(G.call(name, arguments))
+            is_error, result = run(G.call(name, arguments))
             if is_error:
                 st.error(result if isinstance(result, str) else json.dumps(result))
             else:
@@ -259,7 +273,7 @@ with explore_tab:
         st.subheader("Resources")
         uri = st.selectbox("URI", RESOURCE_URIS)
         if st.button("Read resource"):
-            text = asyncio.run(G.read_resource(uri))
+            text = run(G.read_resource(uri))
             lang = "json" if uri.startswith(("parcel", "project")) else "markdown"
             st.code(text[:6000], language=lang, wrap_lines=True)
     with right:
@@ -270,7 +284,7 @@ with explore_tab:
         pargs = st.text_input("Arguments (JSON)", json.dumps(PROMPT_EXAMPLES.get(pname, {})), key=f"pargs_{pname}")
         if st.button("Get prompt"):
             try:
-                st.code(asyncio.run(G.get_prompt(pname, json.loads(pargs or "{}"))), language=None, wrap_lines=True)
+                st.code(run(G.get_prompt(pname, json.loads(pargs or "{}"))), language=None, wrap_lines=True)
             except Exception as exc:
                 st.error(f"{type(exc).__name__}: {exc}")
 
